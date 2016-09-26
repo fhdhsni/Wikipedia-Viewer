@@ -1,0 +1,8 @@
+# emacs backup files
+.#*
+.projectile
+# log files
+*.log
+
+# npm
+node_modules/
