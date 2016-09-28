@@ -61,6 +61,7 @@ li {
         @extend %zeroify;
         border-bottom: 1px $teal solid;
         padding-bottom: ms(0);
+        padding-top: .5em;
         width: $width;
         max-width: $max-width;
 
