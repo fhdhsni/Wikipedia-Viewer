@@ -1,0 +1,79 @@
+body {
+    @extend %flexify;
+    @extend %zeroify;
+}
+
+ul,
+li {
+    @extend %zeroify;
+    list-style: none;
+}
+
+#search {
+    border: 2px solid #808080;
+    border-radius: .4em;
+    margin-top: ms(1);
+    max-width: $max-width;
+    outline: none;
+    padding: ms(0);
+    width: $width;
+
+    @media (max-width: $larg-mobile-size) {
+        width: $larg-mobile-size-width;
+    }
+
+    @media (max-width: $small-mobile-size) {
+        width: $mobile-size-width;
+    }
+
+    &:focus {
+        box-shadow: 0 0 5px $link-color;
+    }
+}
+
+#result {
+    @extend %flexify;
+    width: 100%;
+}
+
+.wiki-links {
+    box-sizing: content-box;
+    margin-bottom: ms(-1);
+    margin-top: ms(0);
+    padding-bottom: .2em;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.entry {
+    @extend %flexify;
+    padding-top: ms(1);
+    transition: all .4s;
+    width: 100%;
+
+    &:hover {
+        box-shadow: inset 0 0 4em 1px $box-shadow-color;
+    }
+
+    p {
+        @extend %zeroify;
+        border-bottom: 1px $teal solid;
+        padding-bottom: ms(0);
+        width: $width;
+        max-width: $max-width;
+
+        @media (max-width: $larg-mobile-size) {
+            width: $larg-mobile-size-width;
+        }
+
+        @media (max-width: $small-mobile-size) {
+            width: $mobile-size-width;
+        }
+    }
+}
+
+#headline {
+    margin-top: ms(2);
+}

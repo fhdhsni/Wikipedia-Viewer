@@ -1,5 +1,5 @@
 {
-  "name": "automated_build",
+  "name": "wikipediaviwer",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -20,14 +20,16 @@
     "test": "karma run",
     "karma:stop": "karma stop",
     "mocha": "mocha",
+    "istanbul": "istanbul cover _mocha -- -R spec",
     "clean": "rm -f src/js/* test/*.js src/css/* src/scss/*",
     "rebuild": "[ ! -d node_modules/.bin ] && echo 'Building npm modules...\n' && npm rebuild",
     "checkNode": "check-node-version --package --quiet",
     "lint": "eslint src/js/*.js test/*.js",
     "eslint": "npm run lint -- --format 'node_modules/eslint-friendly-formatter'",
-    "build:css": "node-sass src/scss/style.scss  --source-map-contents --source-map-embed --output-style expanded | postcss -u autoprefixer --autoprefixer.browsers \"> 5%, ie 9\" -o src/css/style.css",
+    "build:css": "node-sass src/scss/main.scss  --source-map-contents --source-map-embed --output-style expanded | postcss -u autoprefixer -o src/css/style.css",
     "build:js": "browserify -d src/js/*.js -o src/js/bundle.js -t [ babelify --presets [ es2015 ] ]",
     "build": "npm run rebuild; run-s checkNode eslint test build:*",
+    "makeit": "mkdir -p dist/js && mkdir -p dist/css && uglifyjs src/js/bundle.js -o dist/js/scripts.js && node-sass src/scss/main.scss --output-style compressed | postcss -u autoprefixer -o dist/css/styles.css",
     "postbuild": "echo '\nBuild OK\n'"
   },
   "author": "Farhad hsni <farhad.hsni@gmail.com>",
@@ -47,6 +49,7 @@
     "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-jsx-a11y": "^1.5.5",
     "eslint-plugin-react": "^5.2.2",
+    "istanbul": "^0.4.5",
     "karma": "^1.1.1",
     "karma-browserify": "^5.1.0",
     "karma-mocha": "^1.1.1",
@@ -58,6 +61,8 @@
     "onchange": "^2.5.0",
     "postcss-cli": "^2.5.2",
     "semver": "^5.2.0",
-    "sinon": "^1.17.6"
-  }
+    "sinon": "^1.17.6",
+    "uglifyjs": "^2.4.10"
+  },
+  "dependencies": {}
 }

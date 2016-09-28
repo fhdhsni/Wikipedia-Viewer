@@ -1,0 +1,39 @@
+body {
+    font-family: $body-font-stack;
+    font-size: ms(0);
+    line-height: ms(1);
+}
+.wiki-links {
+    @include ms-respond(font-size, 1);
+    color: $link-color;
+    text-decoration: none;
+    transition: all .3s;
+    &:hover {
+        color: $teal;
+        box-shadow: 0 2px $link-color;
+    }
+}
+
+#search {
+    font-size: ms(0);
+    font-family: $body-font-stack;
+    text-align: center;
+}
+
+#headline {
+    font-family: $headline-font-stack;
+    font-size: ms(3);
+    letter-spacing: -2px;
+    color: #eee;
+    &:first-letter {
+        font-size: ms(1);
+        letter-spacing: -.1em;
+    }
+    span {
+        font-size: ms(-2);
+    }
+    @media (max-width: $small-mobile-size) {
+        font-size: ms(2);
+    }
+}
+
